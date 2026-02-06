@@ -301,7 +301,7 @@ body {
   line-height: 1.8;
 }
 
-/* ★追加：My Profileの下の文章 */
+/* My Skill の下の文章 */
 .footer-note{
   width: 520px;
   max-width: calc(100% - 40px);
@@ -317,6 +317,7 @@ body {
 
 /* =========================================================
    作品ページ（soba / ad / food / hobby 共通）
+   （ここはあなたのまま：省略せずそのまま）
    ========================================================= */
 
 /* タイトルが戻るボタンにかぶらないよう上に余白 */
@@ -345,13 +346,11 @@ body {
   box-shadow: inset 0 0 0 4px #b7e3f4;
 }
 
-/* soba/ad/food の新レイアウト（project-page） */
 .project-page{
   max-width: 860px;
   margin: 0 auto;
 }
 
-/* 上の文字ブロック */
 .project-header{
   margin-bottom: 18px;
 }
@@ -373,7 +372,6 @@ body {
   line-height: 1.8;
 }
 
-/* セクション */
 .project-section{
   margin-top: 22px;
 }
@@ -383,7 +381,6 @@ body {
   color: #333;
 }
 
-/* ===== 画像：ホバー中だけ説明（media） ===== */
 .media{
   margin: 0;
   position: relative;
@@ -405,7 +402,6 @@ body {
   box-shadow: inset 0 0 0 4px #b7e3f4;
 }
 
-/* 説明枠：普段は消す → かざしている間だけ表示 */
 .media-caption{
   position: absolute;
   left: 12px;
@@ -439,21 +435,19 @@ body {
   line-height: 1.7;
 }
 
-/* 2枚並び */
 .two-col{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
-/* 画面が狭いときは1列 */
 @media (max-width: 700px){
   .two-col{
     grid-template-columns: 1fr;
   }
 }
 
-/* ===== ad用（残しておく） ===== */
+/* ad用 */
 .text-block{ margin-top: 14px; }
 .text-strong{ margin: 14px 0 6px; font-size: 15px; color: #333; }
 .text-line{ margin: 6px 0 0; font-size: 12px; color: #555; line-height: 1.8; }
@@ -475,7 +469,7 @@ body {
   .wide-and-small{ grid-template-columns: 1fr; }
 }
 
-/* ===== food.html 図のレイアウト用 ===== */
+/* food */
 .food-sec1{
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -499,7 +493,6 @@ body {
   gap: 16px;
 }
 
-/* 右の縦長：枠を“高さ固定”で作って、そこに画像をはめ込む */
 .food-portrait{
   height: 420px;
   border-radius: 14px;
@@ -513,14 +506,12 @@ body {
   border-radius: 14px;
 }
 
-/* 3章：横長3枚を縦に */
 .food-sec3{
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
 }
 
-/* スマホ：全部1列に */
 @media (max-width: 700px){
   .food-sec1,
   .food-sec2{
@@ -532,7 +523,6 @@ body {
   }
 }
 
-/* 2章：右の縦長を “左2枚分の高さ” に合わせる */
 .food-sec2{ align-items: stretch; }
 .food-portrait{
   height: 100%;
@@ -544,7 +534,7 @@ body {
   object-fit: cover;
 }
 
-/* ===== hobby.html 図のレイアウト用 ===== */
+/* hobby */
 .hobby-big4{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -583,86 +573,75 @@ body {
 }
 
 /* =========================================================
-   ✅ スマホで「小さすぎ問題」を解決する上書き（ここが本体）
-   PCはそのまま / スマホだけ大きく見せる
+   ✅スマホだけ「起動画面＋メイン」を大きくする（作品ページは触らない）
    ========================================================= */
 @media (max-width: 768px){
 
-  /* 1) 起動ウィンドウをスマホ幅に合わせて大きく */
+  /* 起動ウィンドウ：横幅をほぼ画面いっぱいに */
   .window{
-    width: min(92vw, 520px);
-    border-radius: 18px;
+    width: min(94vw, 560px);
   }
 
   .window-content{
-    padding: 26px 18px;
+    padding: 28px 18px;
   }
 
   .message{
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
-  .action-buttons{
-    gap: 14px;
-    margin-top: 18px;
+    font-size: 17px;
+    line-height: 1.9;
   }
 
   .cancel-btn,
   .ok-btn{
-    padding: 10px 22px;
-    font-size: 14px;
+    padding: 10px 24px;
+    font-size: 15px;
   }
 
-  /* 2) メイン画面の余白を少し詰めて、要素の見え面積を増やす */
+  /* メインの余白：少し詰めて“見える面積”を増やす */
   #main-screen{
     padding: 56px 0 70px;
   }
 
   .top-text{
-    width: min(92vw, 520px);
+    width: min(92vw, 560px);
     margin: 0 auto 26px;
   }
 
   .top-title{
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .top-sub{
-    font-size: 12px;
-    line-height: 1.8;
+    font-size: 13px;
+    line-height: 1.9;
   }
 
-  /* 3) ★ここが重要：グリッドを “画面幅に合わせて” 伸ばす
-        px固定をやめると、縮小表示されなくなって大きく見えます */
+  /* ★重要：px固定(220px)をやめて、画面幅にフィットさせる */
   .grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
-    padding: 0 18px;
-    justify-content: center;
+    padding: 0 16px;
   }
 
-  /* 4) サムネ枠も可変に（画面幅にフィット） */
+  /* サムネ：スマホで少し大きめに */
   .thumb{
-    width: 42vw;
-    max-width: 220px;   /* PC見た目の上限は維持 */
-    aspect-ratio: 1 / 1;/* 正方形を維持 */
-    height: auto;       /* aspect-ratioに任せる */
+    width: 44vw;
+    max-width: 240px;   /* PCの雰囲気を壊さない上限 */
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 
   .thumb img{
-    width: 82%;
-    height: 82%;
+    width: 84%;
+    height: 84%;
   }
 
   .card-text{
-    font-size: 13px;
+    font-size: 14px;
   }
 
-  /* 5) 下部（My Profile系）も横幅をスマホに合わせる */
   .hover-info,
   .footer-note{
-    width: min(92vw, 520px);
+    width: min(92vw, 560px);
   }
 }
-
