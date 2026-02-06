@@ -54,15 +54,9 @@ if (isIndexPage) {
   cancelBtn.addEventListener("click", fakeLoad);
   miniBtn.addEventListener("click", fakeLoad);
   closeBtn.addEventListener("click", fakeLoad);
-
-  // ★backBtnの個別処理は消す（data-backで統一するため）
-  // backBtn.addEventListener("click", () => {
-  //   sessionStorage.removeItem(BOOT_KEY);
-  //   showOverlay();
-  // });
 }
 
-/* ★全ページ共通：data-back は「統一した戻る」 */
+/* 全ページ共通：data-back は「統一した戻る」 */
 document.querySelectorAll("[data-back]").forEach((el) => {
   el.addEventListener("click", (e) => {
     e.preventDefault();
@@ -85,3 +79,4 @@ document.querySelectorAll("[data-back]").forEach((el) => {
     window.location.href = fallback;
   });
 });
+
