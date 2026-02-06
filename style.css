@@ -581,3 +581,88 @@ body {
   .hobby-small4{ grid-template-columns: repeat(2, 1fr); }
   .hobby-tall2{ grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   ✅ スマホで「小さすぎ問題」を解決する上書き（ここが本体）
+   PCはそのまま / スマホだけ大きく見せる
+   ========================================================= */
+@media (max-width: 768px){
+
+  /* 1) 起動ウィンドウをスマホ幅に合わせて大きく */
+  .window{
+    width: min(92vw, 520px);
+    border-radius: 18px;
+  }
+
+  .window-content{
+    padding: 26px 18px;
+  }
+
+  .message{
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .action-buttons{
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .cancel-btn,
+  .ok-btn{
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+
+  /* 2) メイン画面の余白を少し詰めて、要素の見え面積を増やす */
+  #main-screen{
+    padding: 56px 0 70px;
+  }
+
+  .top-text{
+    width: min(92vw, 520px);
+    margin: 0 auto 26px;
+  }
+
+  .top-title{
+    font-size: 18px;
+  }
+
+  .top-sub{
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  /* 3) ★ここが重要：グリッドを “画面幅に合わせて” 伸ばす
+        px固定をやめると、縮小表示されなくなって大きく見えます */
+  .grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    padding: 0 18px;
+    justify-content: center;
+  }
+
+  /* 4) サムネ枠も可変に（画面幅にフィット） */
+  .thumb{
+    width: 42vw;
+    max-width: 220px;   /* PC見た目の上限は維持 */
+    aspect-ratio: 1 / 1;/* 正方形を維持 */
+    height: auto;       /* aspect-ratioに任せる */
+  }
+
+  .thumb img{
+    width: 82%;
+    height: 82%;
+  }
+
+  .card-text{
+    font-size: 13px;
+  }
+
+  /* 5) 下部（My Profile系）も横幅をスマホに合わせる */
+  .hover-info,
+  .footer-note{
+    width: min(92vw, 520px);
+  }
+}
+
