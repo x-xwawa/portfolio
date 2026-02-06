@@ -2,6 +2,10 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+
+  <!-- ✅これが重要：スマホで縮小されないようにする -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>⋱♱⋰ ⋱✮⋰ ⋱♱⋰ ⋱✮⋰ ⋱♱⋰</title>
 
   <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
@@ -17,8 +21,8 @@
     <header class="window-bar">
       <p class="system-text">System Message</p>
       <div class="window-controls">
-        <button class="mini-btn">－</button>
-        <button class="close-btn">×</button>
+        <button class="mini-btn" type="button">－</button>
+        <button class="close-btn" type="button">×</button>
       </div>
     </header>
 
@@ -26,8 +30,8 @@
       <p class="message">ポートフォリオを起動しますか？</p>
 
       <div class="action-buttons">
-        <button class="cancel-btn">やめる</button>
-        <button class="ok-btn">起動する</button>
+        <button class="cancel-btn" type="button">やめる</button>
+        <button class="ok-btn" type="button">起動する</button>
       </div>
     </div>
 
@@ -45,7 +49,7 @@
 <!-- メイン画面 -->
 <main id="main-screen">
   <!-- ★統一：data-back を付与（indexでは起動画面へ戻る） -->
-  <button id="back-btn" data-back>◀ 戻る</button>
+  <button id="back-btn" data-back type="button">◀ 戻る</button>
 
   <!-- 上のテキスト枠 -->
   <section class="top-text">
@@ -106,7 +110,7 @@ Adobe Creative Cloud：Illustrator／Photoshop／Premiere Pro（授業で使用�
     </div>
   </section>
 
-  <!-- ★追加：My Profile の下の文章 -->
+  <!-- My Skill の下の文章 -->
   <section class="footer-note">
     <p class="footer-note-text">
       Icons: Material Symbols (Apache License 2.0)<br>
