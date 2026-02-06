@@ -317,7 +317,6 @@ body {
 
 /* =========================================================
    作品ページ（soba / ad / food / hobby 共通）
-   （ここはあなたのまま：省略せずそのまま）
    ========================================================= */
 
 /* タイトルが戻るボタンにかぶらないよう上に余白 */
@@ -573,67 +572,62 @@ body {
 }
 
 /* =========================================================
-   ✅スマホだけ「起動画面＋メイン」を大きくする（作品ページは触らない）
+   ✅ スマホだけ「起動画面＋メイン」を大きくする（作品ページは触らない）
    ========================================================= */
 @media (max-width: 768px){
 
-  /* 起動ウィンドウ：横幅をほぼ画面いっぱいに */
+  /* 起動ウィンドウ：横幅を画面に合わせて拡大 */
   .window{
-    width: min(94vw, 560px);
+    width: min(94vw, 620px);
   }
-
   .window-content{
-    padding: 28px 18px;
+    padding: 30px 18px;
   }
-
   .message{
-    font-size: 17px;
-    line-height: 1.9;
+    font-size: 18px;
+    line-height: 1.95;
   }
-
   .cancel-btn,
   .ok-btn{
-    padding: 10px 24px;
+    padding: 11px 26px;
     font-size: 15px;
   }
 
-  /* メインの余白：少し詰めて“見える面積”を増やす */
+  /* メイン画面：余白を少し詰める */
   #main-screen{
-    padding: 56px 0 70px;
+    padding: 54px 0 68px;
   }
 
   .top-text{
-    width: min(92vw, 560px);
-    margin: 0 auto 26px;
+    width: min(94vw, 620px);
+    margin: 0 auto 22px;
   }
-
   .top-title{
-    font-size: 19px;
+    font-size: 20px;
   }
-
   .top-sub{
     font-size: 13px;
     line-height: 1.9;
   }
 
-  /* ★重要：px固定(220px)をやめて、画面幅にフィットさせる */
+  /* ✅ グリッドを“画面幅いっぱい”に使う */
   .grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-    padding: 0 16px;
+    gap: 18px;
+    padding: 0 12px;
   }
 
-  /* サムネ：スマホで少し大きめに */
-  .thumb{
-    width: 44vw;
-    max-width: 240px;   /* PCの雰囲気を壊さない上限 */
+  /* ✅ ここが肝：固定(220px)を確実に上書きする */
+  .grid .thumb{
+    width: 46vw;
+    max-width: none;       /* ←スマホは上限を外す（大きく見せる） */
+    height: auto;          /* ←height:220pxを殺す */
     aspect-ratio: 1 / 1;
-    height: auto;
   }
 
-  .thumb img{
-    width: 84%;
-    height: 84%;
+  .grid .thumb img{
+    width: 86%;
+    height: 86%;
   }
 
   .card-text{
@@ -642,6 +636,18 @@ body {
 
   .hover-info,
   .footer-note{
-    width: min(92vw, 560px);
+    width: min(94vw, 620px);
+  }
+
+  /* さらに小さい端末（iPhone SE級）だけ少し詰める */
+  @media (max-width: 380px){
+    .grid{
+      gap: 14px;
+      padding: 0 10px;
+    }
+    .grid .thumb{
+      width: 48vw;
+    }
   }
 }
+
