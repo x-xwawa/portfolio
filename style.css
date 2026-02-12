@@ -191,13 +191,16 @@ body {
   color: #666;
 }
 
-/* ★追加：My Skill の下に置く注意書き */
-.skill-note{
+/* ★ここから追加（修正）
+   「class='top-sub skill-note'」用に、左右autoを確実に効かせて中央寄せ固定 */
+.top-sub.skill-note{
   width: 520px;
   max-width: calc(100% - 40px);
-  margin: 12px auto 40px; /* 上:My Skillとの間 / 下:グリッドとの間 */
+  margin: 12px auto 40px auto;  /* 上 右 下 左 を明示 */
   text-align: center;
+  display: block;
 }
+/* ★ここまで追加（修正） */
 
 /* ===== グリッド（カテゴリ） ===== */
 .grid {
@@ -629,11 +632,14 @@ body {
     line-height: 1.9;
   }
 
-  /* ★追加：スマホ時の注意書きも幅・余白を揃える */
-  .skill-note{
+  /* ★ここから追加（修正）：スマホ時も注意書きを確実に中央寄せ */
+  .top-sub.skill-note{
     width: min(92vw, 560px);
-    margin: 10px auto 26px;
+    margin: 10px auto 26px auto;
+    text-align: center;
+    display: block;
   }
+  /* ★ここまで追加（修正） */
 
   .grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -662,3 +668,4 @@ body {
     width: min(92vw, 560px);
   }
 }
+
