@@ -191,16 +191,23 @@ body {
   color: #666;
 }
 
-/* ★ここから追加（修正）
-   「class='top-sub skill-note'」用に、左右autoを確実に効かせて中央寄せ固定 */
-.top-sub.skill-note{
+/* 掲載作品の注記（My Skillの上） */
+.top-sub.work-note{
   width: 520px;
   max-width: calc(100% - 40px);
-  margin: 12px auto 40px auto;  /* 上 右 下 左 を明示 */
+  margin: 0 auto 12px auto;
   text-align: center;
   display: block;
 }
-/* ★ここまで追加（修正） */
+
+/* My Skill下の注意書き */
+.top-sub.skill-note{
+  width: 520px;
+  max-width: calc(100% - 40px);
+  margin: 12px auto 40px auto;
+  text-align: center;
+  display: block;
+}
 
 /* ===== グリッド（カテゴリ） ===== */
 .grid {
@@ -268,7 +275,9 @@ body {
 
 /* ===== 下のホバー説明（My Profile） ===== */
 .hover-info {
-  margin: 60px auto 0;
+  /* ★ここが距離の原因だったので 60px → 12px に変更 */
+  margin: 12px auto 0;
+
   width: 520px;
   max-width: calc(100% - 40px);
   text-align: center;
@@ -290,6 +299,9 @@ body {
   border: 1px solid rgba(0,0,0,0.15);
   padding: 14px 12px;
   display: none;
+
+  /* My Skill の説明文だけ左揃え */
+  text-align: left;
 }
 
 .hover-info:hover .hover-panel,
@@ -310,6 +322,13 @@ body {
   font-size: 12px;
   color: #333;
   line-height: 1.8;
+}
+
+/* ★追加：ホバー内の見出し語だけ下線 */
+.skill-key{
+  display: inline-block;
+  padding-bottom: 1px;
+  border-bottom: 1px solid rgba(0,0,0,0.35);
 }
 
 /* My Skill の下の文章 */
@@ -589,17 +608,17 @@ body {
 
   /* ===== 起動ウィンドウ（距離感：小さめ） ===== */
   #overlay{
-    padding: 10vh 0;             /* 上下に余白を作って“近すぎ感”を減らす */
+    padding: 10vh 0;
   }
 
   .window{
-    width: min(78vw, 420px);     /* ←ここが主役：小さめに */
-    transform: scale(0.92);      /* ←さらに少しだけ遠く（不要なら消してOK） */
+    width: min(78vw, 420px);
+    transform: scale(0.92);
     transform-origin: center;
   }
 
   .window-content{
-    padding: 22px 16px;          /* 小さくした分、中も少し締める */
+    padding: 22px 16px;
   }
 
   .message{
@@ -613,7 +632,7 @@ body {
     font-size: 14px;
   }
 
-  /* ===== メイン画面（これは“スマホで小さすぎ”対策のまま維持） ===== */
+  /* ===== メイン画面 ===== */
   #main-screen{
     padding: 56px 0 70px;
   }
@@ -632,14 +651,26 @@ body {
     line-height: 1.9;
   }
 
-  /* ★ここから追加（修正）：スマホ時も注意書きを確実に中央寄せ */
+  /* スマホ：掲載作品の注記 */
+  .top-sub.work-note{
+    width: min(92vw, 560px);
+    margin: 0 auto 10px auto;
+    text-align: center;
+    display: block;
+  }
+
+  /* スマホ：My Skill の上の距離も揃える */
+  .hover-info{
+    margin: 10px auto 0;
+  }
+
+  /* スマホ：My Skill下の注意書き */
   .top-sub.skill-note{
     width: min(92vw, 560px);
     margin: 10px auto 26px auto;
     text-align: center;
     display: block;
   }
-  /* ★ここまで追加（修正） */
 
   .grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -668,4 +699,3 @@ body {
     width: min(92vw, 560px);
   }
 }
-
